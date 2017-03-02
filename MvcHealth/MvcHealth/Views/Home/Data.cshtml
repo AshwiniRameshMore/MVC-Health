@@ -1,0 +1,158 @@
+﻿
+@{
+    ViewBag.Title = "Data";
+}
+
+<h1 style="font-family:verdana; color:blue; text-align:center;"><b>Health</b></h1>
+<h3 style="font-family:verdana; color:black; text-align:center;"><marquee behavior="scroll" direction="right">Hospital Charge Data</marquee></h3>
+
+@using (Html.BeginForm("redirectAdd", "Home"))
+{
+    <div>
+        <img src="/add.png" height="60" width="55" />
+        <button type="submit" class="btn btn-success">Create New Record</button>
+    </div>
+}
+<div class="row">
+    <div class="tabular-data">
+        <table class="table" style="background-color:lightgrey;">
+            <thead>
+                <tr>
+                    <th>Health Repo ID</th>
+                    <th>Provider Id</th>
+                    <th>DRG Definition</th>
+                    <th>Provider Name</th>
+                    <th>Street Address</th>
+                    <th>City</th>
+                    <th>State</th>
+                    <th>ZipCode</th>
+                    <th>Hospital Referral Region</th>
+                    <th>Total Discharges</th>
+                    <th>Average Covered Charges</th>
+                    <th>Average Total Payments</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var i in ViewBag.Hospital)
+                {
+                    <tr name=@i.ID>
+                        <td scope="row">@i.ID</td>
+                        <td>@i.Provider_Id</td>
+                        <td>@i.DRG_Definition</td>
+                        <td>@i.Provider_Name</td>
+                        <td>@i.Provider_Street_Address</td>
+                        <td>@i.Provider_City</td>
+                        <td>@i.Provider_State</td>
+                        <td>@i.Provider_Zip_Code</td>
+                        <td>@i.Hospital_Referral_Region_Description</td>
+                        <td>@i._Total_Discharges_</td>
+                        <td>@i._Average_Covered_Charges_</td>
+                        <td>@i._Average_Total_Payments_</td>
+                        <td><button type="button" class="btn btn-warning" onclick="getID(@i.ID)" name=@i.ID>Edit</button></td>
+                        <td><button type="button" class="btn btn-danger" onclick="callDeleteModal(@i.ID)" name=@i.ID>Delete</button></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+        <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        @using (Html.BeginForm("updateHealthData", "Home"))
+                        {
+                            <form>
+                                <fieldset class="form-group">
+                                    <input type="text" name="subj_id" class="form-control" id="subj_id" placeholder="ID" style="display:none;">
+                                </fieldset>
+                                <fieldset class="form-group">
+                                    <label for="DRG_Definition">DRG_Definition</label>
+                                    <input type="text" name="DRG_Definition" class="form-control" id="DRG_Definition" placeholder="DRG_Definition">
+                                </fieldset>
+                                <fieldset class="form-group">
+                                    <label for="Provider_Id">Provider_Id</label>
+                                    <input type="text" name="Provider_Id" class="form-control" id="Provider_Id" placeholder="Provider_Id">
+                                </fieldset>
+                                <fieldset class="form-group">
+                                    <label for="Provider_Name">Provider_Name</label>
+                                    <input type="text" class="form-control" name="Provider_Name" id="Provider_Name" placeholder="Provider_Name">
+                                </fieldset>
+                                <fieldset class="form-group">
+                                    <label for="Provider_Street_Address">Provider_Street_Address</label>
+                                    <input type="text" class="form-control" name="Provider_Street_Address" id="Provider_Street_Address" placeholder="Provider_Street_Address">
+                                </fieldset>
+                                <fieldset class="form-group">
+                                    <label for="PS2010">Provider_City</label>
+                                    <input type="text" class="form-control" name="POPESTIMATE2010" id="PS2010" placeholder="Pop Estimate 2010">
+                                </fieldset>
+                                <fieldset class="form-group">
+                                    <label for="Provider_State">Provider_State</label>
+                                    <input type="text" class="form-control" name="Provider_State" id="Provider_State" placeholder="Provider_State">
+                                </fieldset>
+                                <fieldset class="form-group">
+                                    <label for="Provider_Zip_Code">Provider_Zip_Code</label>
+                                    <input type="text" class="form-control" name="Provider_Zip_Code" id="Provider_Zip_Code" placeholder="Provider_Zip_Code">
+                                </fieldset>
+                                <fieldset class="form-group">
+                                    <label for="Hospital_Referral_Region_Description">Hospital_Referral_Region_Description</label>
+                                    <input type="text" class="form-control" name="Hospital_Referral_Region_Description" id="Hospital_Referral_Region_Description" placeholder="Hospital_Referral_Region_Description">
+                                </fieldset>
+                                <fieldset class="form-group">
+                                    <label for="_Total_Discharges_">_Total_Discharges_</label>
+                                    <input type="text" class="form-control" name="_Total_Discharges_" id="_Total_Discharges_" placeholder="_Total_Discharges_">
+                                </fieldset>
+                                <fieldset class="form-group">
+                                    <label for="_Average_Covered_Charges_">_Average_Covered_Charges_</label>
+                                    <input type="text" class="form-control" name="_Average_Covered_Charges_" id="_Average_Covered_Charges_" placeholder="_Average_Covered_Charges_">
+                                </fieldset>
+                                <fieldset class="form-group">
+                                    <label for="_Average_Total_Payments_">_Average_Total_Payments_</label>
+                                    <input type="text" class="form-control" name="_Average_Total_Payments_" id="_Average_Total_Payments_" placeholder="_Average_Total_Payments_">
+                                </fieldset>
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                            </form>
+                        }
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    <div class="modal fade" id="deleteModal" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    @using (Html.BeginForm("deleteHealthData", "Home"))
+                    {
+                        <form>
+                            <fieldset class="form-group">
+                                <input type="text" id="del_subj_id" name="del_subj_id" class="form-control" placeholder="ID" style="display:none;">
+                            </fieldset>
+
+                            <fieldset class="form-group">
+                                <span>Are you sure you want to delete this record?</span>
+                            </fieldset>
+
+                            <button type="submit" class="btn btn-primary">Yes</button>
+                            <button type="button" id="delete_cancel" class="btn btn-default" data-dismiss="modal">No</button>
+                        </form>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+<script src="~/JS/index.js"></script>

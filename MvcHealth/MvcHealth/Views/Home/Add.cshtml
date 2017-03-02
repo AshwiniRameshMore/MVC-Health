@@ -1,0 +1,61 @@
+﻿@{
+    ViewBag.Title = "Add Data";
+}
+@using (Html.BeginForm("updateHealthData", "Home"))
+{
+    <form>
+        <fieldset class="form-group">
+            <input type="text" name="subj_id" class="form-control" id="subj_id" placeholder="ID" style="display:none;">
+        </fieldset>
+        <fieldset class="form-group">
+            <label for="DRG_Definition">DRG_Definition</label>
+            <input type="text" name="DRG_Definition" class="form-control" id="DRG_Definition" placeholder="DRG_Definition">
+        </fieldset>
+        <fieldset class="form-group">
+            <label for="Provider_Id">Provider_Id</label>
+            <input type="text" name="Provider_Id" class="form-control" id="Provider_Id" placeholder="Provider_Id">
+        </fieldset>
+        <fieldset class="form-group">
+            <label for="Provider_Name">Provider_Name</label>
+            <input type="text" class="form-control" name="Provider_Name" id="Provider_Name" placeholder="Provider_Name">
+        </fieldset>
+        <fieldset class="form-group">
+            <label for="Provider_Street_Address">Provider_Street_Address</label>
+            <input type="text" class="form-control" name="Provider_Street_Address" id="Provider_Street_Address" placeholder="Provider_Street_Address">
+        </fieldset>
+        <fieldset class="form-group">
+            <label for="PS2010">Provider_City</label>
+            <input type="text" class="form-control" name="POPESTIMATE2010" id="PS2010" placeholder="Pop Estimate 2010">
+        </fieldset>
+        <fieldset class="form-group">
+            <label for="Provider_State">Provider_State</label>
+            <input type="text" class="form-control" name="Provider_State" id="Provider_State" placeholder="Provider_State">
+        </fieldset>
+        <fieldset class="form-group">
+            <label for="Provider_Zip_Code">Provider_Zip_Code</label>
+            <input type="text" class="form-control" name="Provider_Zip_Code" id="Provider_Zip_Code" placeholder="Provider_Zip_Code">
+        </fieldset>
+        <fieldset class="form-group">
+            <label for="Hospital_Referral_Region_Description">Hospital_Referral_Region_Description</label>
+            <input type="text" class="form-control" name="Hospital_Referral_Region_Description" id="Hospital_Referral_Region_Description" placeholder="Hospital_Referral_Region_Description">
+        </fieldset>
+        <fieldset class="form-group">
+            <label for="_Total_Discharges_">_Total_Discharges_</label>
+            <input type="text" class="form-control" name="_Total_Discharges_" id="_Total_Discharges_" placeholder="_Total_Discharges_">
+        </fieldset>
+        <fieldset class="form-group">
+            <label for="_Average_Covered_Charges_">_Average_Covered_Charges_</label>
+            <input type="text" class="form-control" name="_Average_Covered_Charges_" id="_Average_Covered_Charges_" placeholder="_Average_Covered_Charges_">
+        </fieldset>
+        <fieldset class="form-group">
+            <label for="_Average_Total_Payments_">_Average_Total_Payments_</label>
+            <input type="text" class="form-control" name="_Average_Total_Payments_" id="_Average_Total_Payments_" placeholder="_Average_Total_Payments_">
+        </fieldset>
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-default" onclick="backHome();">Cancel</button>
+    </form>
+}
+
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+<script src="~/JS/index.js"></script>
+@*<script src="~/JS/data.js"></script>*@

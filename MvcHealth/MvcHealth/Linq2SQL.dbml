@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="HealthDB" Class="Linq2SQLDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=tcp:health.database.windows.net,1433;Initial Catalog=HealthDB;User ID=Health123@health;Connect Timeout=30;Encrypt=True;TrustServerCertificate=False" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="HealthDBConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.health" Member="healths">
+    <Type Name="health">
+      <Column Name="DRG_Definition" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Provider_Id" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Provider_Name" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Provider_Street_Address" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Provider_City" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Provider_State" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Provider_Zip_Code" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Hospital_Referral_Region_Description" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="[_Total_Discharges_]" Member="_Total_Discharges_" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="[_Average_Covered_Charges_]" Member="_Average_Covered_Charges_" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="[_Average_Total_Payments_]" Member="_Average_Total_Payments_" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+    </Type>
+  </Table>
+</Database>

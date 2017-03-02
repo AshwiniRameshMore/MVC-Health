@@ -1,0 +1,46 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+
+    <img src="/cross.gif" height="72" width="90" />
+    <h1><b><b><a href="https://localhost:44377/Home/data">HEALTH</a></b></b></h1>
+   
+    <p class="lead">Data are being released that show significant variation across the country and within communities in what providers charge for common services. These data include information comparing the charges for the 100 most common inpatient services and 30 common outpatient services.</p>
+    <p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+</div>
+
+@*<div class="row">
+    <div class="col-md-4">
+        <h2>Getting started</h2>
+        <p>
+            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
+            enables a clean separation of concerns and gives you full control over markup
+            for enjoyable, agile development.
+        </p>
+        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>Get more libraries</h2>
+        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
+        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>Web Hosting</h2>
+        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
+        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+    </div>
+</div>*@
+<script>
+            function ShowMessage() {
+                alert("File Uploaded successuflly! Check your uploaded file in App_Data/Uploads folder!")
+            }
+</script>
+<form action="" method="post" enctype="multipart/form-data">
+
+    <label for="file"><b>Upload .csv File here:</b></label>
+    <input type="file" name="file" id="file" />
+
+    <input type="submit" onclick="javascript:ShowMessage();" />
+</form>
